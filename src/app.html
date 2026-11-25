@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f4f0">
+<meta name="referrer" content="no-referrer">
+<title>轨迹攻略</title>
+<script>
+// Apply the saved theme and text size before anything is painted.
+(function () {
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem("trails-reader.v1") || "{}") || {}; } catch (e) {}
+  var dark = saved.theme === "dark" ||
+    (saved.theme !== "light" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  var root = document.documentElement;
+  root.setAttribute("data-theme", dark ? "dark" : "light");
+  root.style.setProperty("--scale", [0.9, 1, 1.12, 1.25][saved.font] || 1);
+})();
+</script>
+{{HEAD}}
+</head>
+<body>
+<div id="app">
+  <header id="top">
+    <button id="btn-menu" class="icon-btn" aria-label="目录"></button>
+    <div id="top-title"></div>
+    <button id="btn-search" class="icon-btn" aria-label="搜索"></button>
+    <button id="btn-settings" class="icon-btn" aria-label="设置"></button>
+  </header>
+  <main id="view"></main>
+  <nav id="tabs"></nav>
+</div>
+
+<div class="scrim"></div>
+<aside class="drawer" aria-label="目录"></aside>
+
+<section id="search" class="overlay search" aria-label="搜索">
+  <div class="search-bar">
+    <button class="icon-btn" data-close aria-label="返回"></button>
+    <input id="search-input" type="search" placeholder="搜索攻略内容" autocomplete="off" autocapitalize="off" enterkeyhint="search">
+  </div>
+  <div class="search-results"></div>
+</section>
+
+<section id="settings" class="overlay sheet-wrap" aria-label="设置">
+  <div class="sheet">
+    <h3>正文字号</h3>
+    <div class="seg" id="font-opts"></div>
+    <h3>外观</h3>
+    <div class="seg" id="theme-opts"></div>
+    <h3>关于与来源</h3>
+    <div class="about" id="about"></div>
+  </div>
+</section>
+
+<section id="picker" class="overlay sheet-wrap" aria-label="筛选">
+  <div class="sheet"></div>
+</section>
+
+<section id="viewer" class="overlay viewer" aria-label="查看图片">
+  <img id="viewer-img" alt="">
+  <button class="icon-btn floating" data-close aria-label="关闭"></button>
+  <div class="viewer-nav">
+    <button class="icon-btn" id="viewer-prev" aria-label="上一张"></button>
+    <span id="viewer-count"></span>
+    <button class="icon-btn" id="viewer-next" aria-label="下一张"></button>
+  </div>
+</section>
+
+{{BODY}}
+</body>
+</html>

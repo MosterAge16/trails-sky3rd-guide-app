@@ -1,0 +1,13 @@
+[
+  {
+    "id": "3rd-walkthrough",
+    "game": "空之轨迹3rd",
+    "name": "剧情攻略",
+    "url": "https://trails-game.com/walkthrough/3rd-walkthrough/",
+    "related": [
+      { "label": "笔记（人物 / 战斗 / 钓鱼 / 料理）", "url": "https://trails-game.com/walkthrough/3rd-notes/" },
+      { "label": "奖杯", "url": "https://trails-game.com/walkthrough/3rd-trophy/" },
+      { "label": "数据（回路 / 装备 / 技能 / 魔法）", "url": "https://trails-game.com/data/3rd-data/" }
+    ]
+  }
+]

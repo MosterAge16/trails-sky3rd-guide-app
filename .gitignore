@@ -1,0 +1,17 @@
+# ---- 签名密钥：绝对不能进仓库 ----
+signing/
+
+# ---- 构建产物：tools/build.py、tools/build_apk.py 可随时重新生成 ----
+dist/
+build/
+
+# ---- 抓取缓存：图片和网页可重新下载 ----
+cache/*
+!cache/raw/
+cache/raw/*
+# notes-tables.json 例外：需要用浏览器手工抓取，保留在仓库里（见 tools/fetch_notes.py）
+!cache/raw/notes-tables.json
+
+# ---- 系统杂物 ----
+Thumbs.db
+.DS_Store
